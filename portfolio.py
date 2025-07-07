@@ -31,7 +31,7 @@ UPLOAD_DIR=Path(__file__).resolve().parent /"uploads/project_"
 #allow requests from frontend
 app.add_middleware(
     CORSMiddleware, 
-    allow_origins=['https://vercel.com/samuel-macharias-projects/frontend/F17TEQiZwsCaZs8kDWa2AcJMKMbJ'],
+    allow_origins=['https://portfolio-frontend-gamma-peach.vercel.app'],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
