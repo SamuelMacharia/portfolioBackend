@@ -3,11 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse, JSONResponse
 from fastapi import Request, Depends, HTTPException
 from fastapi.staticfiles import StaticFiles
-import requests.cookies
 from sqlalchemy.orm import Session, joinedload
-from pydantic import BaseModel
 from dotenv import load_dotenv
-import requests, os, shutil
+import requests, os
 from datetime import datetime, timedelta
 from database import User, SessionLocal, Project, ProjectFile, UpdateProject
 from config import CLIENT_ID, CLIENT_SECRET, REDIRECT_URL, JWT_SECRET, ADMIN_EMAIL
@@ -31,7 +29,7 @@ UPLOAD_DIR=Path(__file__).resolve().parent /"uploads/project_"
 #allow requests from frontend
 app.add_middleware(
     CORSMiddleware, 
-    allow_origins=['https://portfolio-frontend-gamma-peach.vercel.app'],
+    allow_origins=['https://portfolio-frontend-gamma-peach.vercel.app', 'http://localhost:5173/'],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
